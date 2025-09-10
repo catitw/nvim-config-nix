@@ -18,23 +18,51 @@ local lazyOptions = {
   lockfile = getlockfilepath(),
 }
 
-local lazyVimExtras = {
-  { import = 'lazyvim.plugins.extras.lang.rust' },
-  { import = 'lazyvim.plugins.extras.lang.toml' },
+local lazyvimCategoryImports = {
+  rust = {
+    "lazyvim.plugins.extras.lang.rust",
+    "lazyvim.plugins.extras.lang.toml",
+  },
+  nix = {
+    "lazyvim.plugins.extras.lang.nix",
+  },
 }
+
+local function build_lazy_extras()
+  if not vim.is_callable(nixCats) then
+    return {}
+  end
+
+  local added = {}
+  local extras = {}
+
+  for key, imports in pairs(lazyvimCategoryImports) do
+    local ok, enabled = pcall(nixCats, key)
+    if ok and enabled then
+      for _, import_str in ipairs(imports) do
+        if not added[import_str] then
+          table.insert(extras, { import = import_str })
+          added[import_str] = true
+        end
+      end
+    end
+  end
+
+  return extras
+end
 
 -- NOTE: this the lazy wrapper. Use it like require('lazy').setup() but with an extra
 -- argument, the path to lazy.nvim as downloaded by nix, or nil, before the normal arguments.
 require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 'lazy.nvim' }, {
   { 'LazyVim/LazyVim',                           import = 'lazyvim.plugins' },
-  -- https://lazy.folke.io/usage/structuring#%EF%B8%8F-importing-specs-config--opts
-  unpack(lazyVimExtras),
   -- disable mason.nvim while using nix
   -- precompiled binaries do not agree with nixos, and we can just make nix install this stuff for us.
   { 'williamboman/mason-lspconfig.nvim',         enabled = require('nixCatsUtils').lazyAdd(true, false) },
   { 'williamboman/mason.nvim',                   enabled = require('nixCatsUtils').lazyAdd(true, false) },
   { 'jay-babu/mason.nvim',                       enabled = require('nixCatsUtils').lazyAdd(true, false) },
   { 'WhoIsSethDaniel/mason-tool-installer.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
+    -- https://lazy.folke.io/usage/structuring#%EF%B8%8F-importing-specs-config--opts
+  unpack(build_lazy_extras()),
   {
     'nvim-treesitter/nvim-treesitter',
     build = require('nixCatsUtils').lazyAdd ':TSUpdate',

@@ -116,7 +116,6 @@
               fd
               stdenv.cc.cc
               lua-language-server
-              nil # I would go for nixd but lazy chooses this one idk
               stylua
             ];
             rust = [
@@ -128,6 +127,10 @@
                 "rustfmt"
               ])
               rust-analyzer-nightly # provide by `fenix`
+            ];
+            nix = [
+              nixd # instead of lazyvim default `nil`
+              nixfmt-rfc-style
             ];
           };
 
@@ -194,6 +197,7 @@
               crates-nvim
               rustaceanvim
             ];
+            nix = [ ];
           };
 
           # not loaded automatically at startup.
@@ -280,9 +284,23 @@
             categories = {
               general = true;
               rust = true;
+              nix = true;
               test = false;
             };
-            extra = { };
+            extra = {
+              nixdExtras = {
+                nixpkgs = "import ${builtins.path { path = pkgs.path; }} {}";
+                get_configs = utils.n2l.types.function-unsafe.mk {
+                  args = [
+                    "type"
+                    "path"
+                  ];
+                  body = ''return [[import ${./misc_nix/nixd.nix} ${
+                    builtins.path { path = pkgs.path; }
+                  } "]] .. type .. [[" ]] .. (path or "./.")'';
+                };
+              };
+            };
           };
         # an extra test package with normal lua reload for fast edits
         # nix doesnt provide the config in this package, allowing you free reign to edit it.
