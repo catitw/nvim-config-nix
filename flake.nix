@@ -132,6 +132,15 @@
               nixd # instead of lazyvim default `nil`
               nixfmt-rfc-style
             ];
+            go = [
+              go
+              gopls
+              gotools
+              gofumpt
+              gomodifytags
+              impl
+              delve
+            ];
           };
 
           # NOTE: lazy doesnt care if these are in startupPlugins or optionalPlugins
@@ -285,6 +294,7 @@
               general = true;
               rust = true;
               nix = true;
+              go = true;
               test = false;
             };
             extra = {

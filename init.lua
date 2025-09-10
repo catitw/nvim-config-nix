@@ -26,6 +26,9 @@ local lazyvimCategoryImports = {
   nix = {
     "lazyvim.plugins.extras.lang.nix",
   },
+  go = {
+    "lazyvim.plugins.extras.lang.go",
+  },
 }
 
 local function build_lazy_extras()
