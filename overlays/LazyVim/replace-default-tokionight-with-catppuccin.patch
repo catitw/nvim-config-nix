@@ -1,0 +1,36 @@
+diff --git a/lua/lazyvim/config/init.lua b/lua/lazyvim/config/init.lua
+index 73c35f1f..1da88261 100644
+--- a/lua/lazyvim/config/init.lua
++++ b/lua/lazyvim/config/init.lua
+@@ -10,9 +10,7 @@ LazyVim.config = M
+ local defaults = {
+   -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
+   ---@type string|fun()
+-  colorscheme = function()
+-    require("tokyonight").load()
+-  end,
++  colorscheme = "catppuccin-mocha",
+   -- load the default settings
+   defaults = {
+     autocmds = true, -- lazyvim.config.autocmds
+diff --git a/lua/lazyvim/plugins/colorscheme.lua b/lua/lazyvim/plugins/colorscheme.lua
+index fa611bf4..efc14cb3 100644
+--- a/lua/lazyvim/plugins/colorscheme.lua
++++ b/lua/lazyvim/plugins/colorscheme.lua
+@@ -1,11 +1,11 @@
+ return {
+ 
+   -- tokyonight
+-  {
+-    "folke/tokyonight.nvim",
+-    lazy = true,
+-    opts = { style = "moon" },
+-  },
++  -- {
++  --   "folke/tokyonight.nvim",
++  --   lazy = true,
++  --   opts = { style = "moon" },
++  -- },
+ 
+   -- catppuccin
+   {
