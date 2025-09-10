@@ -5,7 +5,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    nixCats = {
+      url = "github:BirdeeHub/nixCats-nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fenix = {
+      url = "github:nix-community/fenix/monthly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -20,7 +29,6 @@
     # overlay defined for custom builds in the overlays directory.
     # for specific tags, branches and commits, see:
     # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
-    # MyLazyVim.url = "github:catitw/LazyVim-Nix";
   };
 
   # see :help nixCats.flake.outputs
@@ -29,6 +37,7 @@
       self,
       nixpkgs,
       nixCats,
+      fenix,
       ...
     }@inputs:
     let
@@ -61,6 +70,7 @@
           (utils.standardPluginOverlay inputs)
           # add any other flake overlays here.
           (import ./overlays/LazyVim inputs)
+          fenix.overlays.default # rust toolchains
 
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
@@ -110,6 +120,16 @@
               nil # I would go for nixd but lazy chooses this one idk
               stylua
             ];
+            rust = [
+              (fenix.packages.${pkgs.system}.complete.withComponents [
+                "cargo"
+                "clippy"
+                "rust-src"
+                "rustc"
+                "rustfmt"
+              ])
+              rust-analyzer-nightly # provide by `fenix`
+            ];
           };
 
           # NOTE: lazy doesnt care if these are in startupPlugins or optionalPlugins
@@ -150,20 +170,30 @@
               #     lua
               #   ]
               # ))
-              
+
               # sometimes you have to fix some names
-              { plugin = catppuccin-nvim; name = "catppuccin"; }
+              {
+                plugin = catppuccin-nvim;
+                name = "catppuccin";
+              }
               {
                 plugin = mini-ai;
                 name = "mini.ai";
               }
-              { plugin = mini-icons; name = "mini.icons"; }
+              {
+                plugin = mini-icons;
+                name = "mini.icons";
+              }
               {
                 plugin = mini-pairs;
                 name = "mini.pairs";
               }
               # you could do this within the lazy spec instead if you wanted
               # and get the new names from `:NixCats pawsible` debug command
+            ];
+            rust = [
+              crates-nvim
+              rustaceanvim
             ];
           };
 
@@ -250,6 +280,7 @@
             # (and other information to pass to lua)
             categories = {
               general = true;
+              rust = true;
               test = false;
             };
             extra = { };

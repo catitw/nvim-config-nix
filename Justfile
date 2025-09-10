@@ -9,9 +9,15 @@ default:
 build:
   nix build --no-link . --print-build-logs --show-trace -L --verbose --option substituters "https://mirrors.ustc.edu.cn/nix-channels/store  https://cache.nixos.org/"
 
+
+
+# Nix develop
 [group('nix')]
-develop:
-  nix develop -i . --command bash --noprofile --norc
+develop flake=".#default":
+  # pure shell: 
+  # - https://github.com/NixOS/nix/issues/6439#issuecomment-1107619941
+  # - https://discourse.nixos.org/t/nix-develop-fails-with-command-bash-norc/31896/9
+  nix develop --ignore-environment --keep HOME . --command bash --noprofile --norc
 
 # Update all the flake inputs
 [group('nix')]
