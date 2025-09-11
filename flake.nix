@@ -141,6 +141,12 @@
               impl
               delve
             ];
+            cpp = [
+              cmake-lint # provide `cmakelint`
+              cmake-format # proide `cmake-annotate cmake-format cmake-genparsers cmake-lint ctest-to`
+              neocmakelsp
+              llvmPackages_21.clang-tools
+            ];
           };
 
           # NOTE: lazy doesnt care if these are in startupPlugins or optionalPlugins
@@ -207,6 +213,13 @@
               rustaceanvim
             ];
             nix = [ ];
+            cpp = [
+              none-ls-nvim
+              nvim-lint
+              cmake-tools-nvim
+              clangd_extensions-nvim
+              nvim-cmp
+            ];
           };
 
           # not loaded automatically at startup.
@@ -295,6 +308,7 @@
               rust = true;
               nix = true;
               go = true;
+              cpp = true;
               test = false;
             };
             extra = {

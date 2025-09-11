@@ -30,6 +30,10 @@ local lazyvimCategoryImports = {
   go = {
     -- "lazyvim.plugins.extras.lang.go",
   },
+  cpp = {
+    -- "lazyvim.plugins.extras.lang.clangd",
+    -- "lazyvim.plugins.extras.lang.cmake"
+  },
 }
 
 local function build_lazy_extras()
