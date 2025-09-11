@@ -368,6 +368,7 @@
           default = pkgs.mkShell {
             name = defaultPackageName;
             packages = [
+              pkgs.bashInteractive
               defaultPackage
             ];
             inputsFrom = [ ];

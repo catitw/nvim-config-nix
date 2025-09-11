@@ -23,6 +23,7 @@ local lazyvimCategoryImports = {
     "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.toml",
   },
+  -- `:lua vim.print(vim.lsp.get_active_clients({ name = "nixd" }))`
   nix = {
     "lazyvim.plugins.extras.lang.nix",
   },
