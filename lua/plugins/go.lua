@@ -1,5 +1,4 @@
-if not nixCats('go') then return {} end
-
+if not require('nixCatsUtils').enableForNixCategory('go') then return {} end
 
 -- copied from [LazyVim default go extra config](https://www.lazyvim.org/extras/lang/go)
 return {

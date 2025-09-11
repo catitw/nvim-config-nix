@@ -1,4 +1,4 @@
-if not nixCats('cpp') then return {} end
+if not require('nixCatsUtils').enableForNixCategory('cpp') then return {} end
 
 -- copied from [LazyVim default clangd extra config](https://www.lazyvim.org/extras/lang/clangd)
 return {

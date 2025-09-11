@@ -1,4 +1,3 @@
-
 return {
   "catitw/wildfire.nvim",
   event = "BufEnter",
