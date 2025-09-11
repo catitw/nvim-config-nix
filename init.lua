@@ -36,6 +36,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
   { import = 'lazyvim.plugins.extras.ui.mini-animate' },
   { import = 'lazyvim.plugins.extras.ui.mini-indentscope' },
   { import = 'lazyvim.plugins.extras.ui.treesitter-context' },
+  { import = 'lazyvim.plugins.extras.editor.outline' },       -- `<leader>cs` : `Toggle Outline`
   -- rust
   { import = 'lazyvim.plugins.extras.lang.rust',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },
   { import = 'lazyvim.plugins.extras.lang.toml',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },

@@ -202,6 +202,7 @@
               nvim-treesitter-context
               pkgs.neovimPlugins.nvim-lsp-endhints
               flatten-nvim
+              outline-nvim
 
               {
                 plugin = vim-suda;
