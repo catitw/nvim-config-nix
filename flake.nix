@@ -33,6 +33,11 @@
       url = "github:catitw/wildfire.nvim";
       flake = false;
     };
+
+    plugins-nvim-lsp-endhints = {
+      url = "github:catitw/nvim-lsp-endhints";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -195,6 +200,7 @@
 
               indent-blankline-nvim
               nvim-treesitter-context
+              pkgs.neovimPlugins.nvim-lsp-endhints
 
               {
                 plugin = vim-suda;
