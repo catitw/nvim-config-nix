@@ -201,6 +201,7 @@
               indent-blankline-nvim
               nvim-treesitter-context
               pkgs.neovimPlugins.nvim-lsp-endhints
+              flatten-nvim
 
               {
                 plugin = vim-suda;
