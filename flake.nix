@@ -28,6 +28,11 @@
     # overlay defined for custom builds in the overlays directory.
     # for specific tags, branches and commits, see:
     # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
+
+    plugins-wildfire = {
+      url = "github:catitw/wildfire.nvim";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -190,6 +195,10 @@
               {
                 plugin = vim-suda;
                 name = "suda.vim";
+              }
+              {
+                plugin = pkgs.neovimPlugins.wildfire;
+                name = "wildfire.nvim";
               }
 
               # sometimes you have to fix some names
