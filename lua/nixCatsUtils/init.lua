@@ -100,6 +100,10 @@ function M.enableForCategory(v, default)
   end
 end
 
+function M.enableForNixCategory(v)
+  return M.enableForCategory(v, true)
+end
+
 ---if nix, return value of nixCats(v) else return default
 ---Exists to specify a different non_nix_value than the one in setup()
 ---@param v string|string[]

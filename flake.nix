@@ -192,6 +192,10 @@
               #     lua
               #   ]
               # ))
+
+              indent-blankline-nvim
+              nvim-treesitter-context
+
               {
                 plugin = vim-suda;
                 name = "suda.vim";
@@ -200,8 +204,7 @@
                 plugin = pkgs.neovimPlugins.wildfire;
                 name = "wildfire.nvim";
               }
-
-              # sometimes you have to fix some names
+              
               {
                 plugin = catppuccin-nvim;
                 name = "catppuccin";
@@ -217,6 +220,14 @@
               {
                 plugin = mini-pairs;
                 name = "mini.pairs";
+              }
+              {
+                plugin = mini-animate;
+                name = "mini.animate";
+              }
+              {
+                plugin = mini-indentscope;
+                name = "mini.indentscope";
               }
               # you could do this within the lazy spec instead if you wanted
               # and get the new names from `:NixCats pawsible` debug command

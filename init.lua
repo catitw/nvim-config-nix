@@ -19,6 +19,12 @@ local lazyOptions = {
 }
 
 local lazyvimCategoryImports = {
+  general = {
+    "lazyvim.plugins.extras.ui.indent-blankline",
+    "lazyvim.plugins.extras.ui.mini-animate",
+    "lazyvim.plugins.extras.ui.mini-indentscope",
+    "lazyvim.plugins.extras.ui.treesitter-context",
+  },
   rust = {
     "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.toml",
@@ -69,8 +75,20 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
   { 'williamboman/mason.nvim',                   enabled = require('nixCatsUtils').lazyAdd(true, false) },
   { 'jay-babu/mason.nvim',                       enabled = require('nixCatsUtils').lazyAdd(true, false) },
   { 'WhoIsSethDaniel/mason-tool-installer.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
-    -- https://lazy.folke.io/usage/structuring#%EF%B8%8F-importing-specs-config--opts
-  unpack(build_lazy_extras()),
+
+  -- https://lazy.folke.io/usage/structuring#%EF%B8%8F-importing-specs-config--opts
+  -- general
+  { import = 'lazyvim.plugins.extras.ui.indent-blankline' },
+  { import = 'lazyvim.plugins.extras.ui.mini-animate' },
+  { import = 'lazyvim.plugins.extras.ui.mini-indentscope' },
+  { import = 'lazyvim.plugins.extras.ui.treesitter-context' },
+  -- rust
+  { import = 'lazyvim.plugins.extras.lang.rust',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },
+  { import = 'lazyvim.plugins.extras.lang.toml',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },
+  -- nix
+  { import = 'lazyvim.plugins.extras.lang.nix',       enabled = require('nixCatsUtils').enableForNixCategory('nix') },
+  
+
   {
     'nvim-treesitter/nvim-treesitter',
     build = require('nixCatsUtils').lazyAdd ':TSUpdate',
