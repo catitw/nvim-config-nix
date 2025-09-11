@@ -187,6 +187,10 @@
               #     lua
               #   ]
               # ))
+              {
+                plugin = vim-suda;
+                name = "suda.vim";
+              }
 
               # sometimes you have to fix some names
               {
