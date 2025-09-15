@@ -157,6 +157,10 @@
               neocmakelsp
               llvmPackages_21.clang-tools
             ];
+            python = [
+              pyright
+              ruff
+            ];
           };
 
           # NOTE: lazy doesnt care if these are in startupPlugins or optionalPlugins
@@ -212,7 +216,7 @@
                 plugin = pkgs.neovimPlugins.wildfire;
                 name = "wildfire.nvim";
               }
-              
+
               {
                 plugin = catppuccin-nvim;
                 name = "catppuccin";
@@ -341,6 +345,7 @@
               nix = true;
               go = true;
               cpp = true;
+              python = true;
               test = false;
             };
             extra = {
