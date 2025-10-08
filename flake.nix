@@ -84,9 +84,9 @@
           (utils.standardPluginOverlay inputs)
 
           # add any other flake overlays here.
+          (import ./overlays/LazyVim inputs)
           inputs.nvim-treesitter-main.overlays.default
           fenix.overlays.default # rust toolchains
-          (import ./overlays/LazyVim inputs)
 
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
