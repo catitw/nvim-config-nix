@@ -53,7 +53,23 @@
         "type": "github"
       }
     },
-    "nvim-treesitter-main": {
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1759831965,
+        "narHash": "sha256-vgPm2xjOmKdZ0xKA6yLXPJpjOtQPHfaZDRtH+47XEBo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c9b6fb798541223bbb396d287d16f43520250518",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter": {
       "flake": false,
       "locked": {
         "lastModified": 1759824015,
@@ -67,6 +83,43 @@
         "owner": "nvim-treesitter",
         "ref": "main",
         "repo": "nvim-treesitter",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter-main": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "nvim-treesitter": "nvim-treesitter",
+        "nvim-treesitter-textobjects": "nvim-treesitter-textobjects"
+      },
+      "locked": {
+        "lastModified": 1759559567,
+        "narHash": "sha256-cNu8MIRumBeW1HJK8c8IM6ge1yalz4xS5j5RCDbhf0Y=",
+        "owner": "iofq",
+        "repo": "nvim-treesitter-main",
+        "rev": "1f19cc0a907328d8dbf467ee9fe216277628d366",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iofq",
+        "repo": "nvim-treesitter-main",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter-textobjects": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756368113,
+        "narHash": "sha256-+KmOpRi4JAqm6UqYdtk80jwFrJhLCs0lZM/Liofq0R4=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-textobjects",
+        "rev": "1b2d85d3de6114c4bcea89ffb2cd1ce9e3a19931",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "ref": "main",
+        "repo": "nvim-treesitter-textobjects",
         "type": "github"
       }
     },

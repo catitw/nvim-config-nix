@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # https://github.com/NixOS/nixpkgs/issues/415438#issuecomment-3364499642
+    nvim-treesitter-main = {
+      url = "github:iofq/nvim-treesitter-main";
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -36,11 +41,6 @@
 
     plugins-nvim-lsp-endhints = {
       url = "github:catitw/nvim-lsp-endhints";
-      flake = false;
-    };
-
-    nvim-treesitter-main = {
-      url = "github:nvim-treesitter/nvim-treesitter?ref=main";
       flake = false;
     };
   };
@@ -82,10 +82,11 @@
           # Once we add this overlay to our nixpkgs, we are able to
           # use `pkgs.neovimPlugins`, which is a set of our plugins.
           (utils.standardPluginOverlay inputs)
+
           # add any other flake overlays here.
-          (import ./overlays/LazyVim inputs)
-          (import ./overlays/nvim-treesitter inputs)
+          inputs.nvim-treesitter-main.overlays.default
           fenix.overlays.default # rust toolchains
+          (import ./overlays/LazyVim inputs)
 
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
@@ -199,7 +200,7 @@
               which-key-nvim
               snacks-nvim
               nvim-treesitter-textobjects
-              nvim-treesitter-main.withAllGrammars
+              nvim-treesitter.withAllGrammars
               # This is for if you only want some of the grammars
               # (nvim-treesitter.withPlugins (
               #   plugins: with plugins; [
