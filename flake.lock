@@ -53,6 +53,23 @@
         "type": "github"
       }
     },
+    "nvim-treesitter-main": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759824015,
+        "narHash": "sha256-1zVgNJJiKVskWF+eLllLB51iwg10Syx9IDzp90fFDWU=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "ref": "main",
+        "repo": "nvim-treesitter",
+        "type": "github"
+      }
+    },
     "plugins-nvim-lsp-endhints": {
       "flake": false,
       "locked": {
@@ -90,6 +107,7 @@
         "fenix": "fenix",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "nvim-treesitter-main": "nvim-treesitter-main",
         "plugins-nvim-lsp-endhints": "plugins-nvim-lsp-endhints",
         "plugins-wildfire": "plugins-wildfire"
       }

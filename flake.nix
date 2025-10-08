@@ -38,6 +38,11 @@
       url = "github:catitw/nvim-lsp-endhints";
       flake = false;
     };
+
+    nvim-treesitter-main = {
+      url = "github:nvim-treesitter/nvim-treesitter?ref=main";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -79,6 +84,7 @@
           (utils.standardPluginOverlay inputs)
           # add any other flake overlays here.
           (import ./overlays/LazyVim inputs)
+          (import ./overlays/nvim-treesitter inputs)
           fenix.overlays.default # rust toolchains
 
           # when other people mess up their overlays by wrapping them with system,
@@ -193,7 +199,7 @@
               which-key-nvim
               snacks-nvim
               nvim-treesitter-textobjects
-              nvim-treesitter.withAllGrammars
+              nvim-treesitter-main.withAllGrammars
               # This is for if you only want some of the grammars
               # (nvim-treesitter.withPlugins (
               #   plugins: with plugins; [
