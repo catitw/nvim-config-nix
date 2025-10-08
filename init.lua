@@ -39,6 +39,8 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
   { import = 'lazyvim.plugins.extras.ui.mini-indentscope' },
   { import = 'lazyvim.plugins.extras.ui.treesitter-context' },
   { import = 'lazyvim.plugins.extras.editor.outline' }, -- `<leader>cs` : `Toggle Outline`
+
+  { import = 'lazyvim.plugins.extras.lang.git' }, -- we installed all parsers, so this works. see https://www.lazyvim.org/extras/lang/git#nvim-treesitter
   -- rust
   { import = 'lazyvim.plugins.extras.lang.rust',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },
   { import = 'lazyvim.plugins.extras.lang.toml',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },

@@ -214,6 +214,7 @@
               pkgs.neovimPlugins.nvim-lsp-endhints
               flatten-nvim
               outline-nvim
+              cmp-git # lazyvim-extra lang-git require this, see [lazyvim](https://www.lazyvim.org/extras/lang/git#cmp-git)
 
               {
                 plugin = vim-suda;
