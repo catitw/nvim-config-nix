@@ -134,6 +134,7 @@
               stdenv.cc.cc
               lua-language-server
               stylua
+              taplo # for toml
             ];
             rust = [
               (fenix.packages.${pkgs.system}.complete.withComponents [
