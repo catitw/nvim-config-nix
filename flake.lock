@@ -139,30 +139,13 @@
         "type": "github"
       }
     },
-    "plugins-wildfire": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1692596265,
-        "narHash": "sha256-3eyKUJ/99TDJf7gRtWfA1EPKSa6o6ecHCUYDTzw7bog=",
-        "owner": "catitw",
-        "repo": "wildfire.nvim",
-        "rev": "1729faca1c6ae34520a6e531983a3737d3654ee1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catitw",
-        "repo": "wildfire.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "fenix": "fenix",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "nvim-treesitter-main": "nvim-treesitter-main",
-        "plugins-nvim-lsp-endhints": "plugins-nvim-lsp-endhints",
-        "plugins-wildfire": "plugins-wildfire"
+        "plugins-nvim-lsp-endhints": "plugins-nvim-lsp-endhints"
       }
     },
     "rust-analyzer-src": {

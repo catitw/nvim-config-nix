@@ -34,11 +34,6 @@
     # for specific tags, branches and commits, see:
     # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
 
-    plugins-wildfire = {
-      url = "github:catitw/wildfire.nvim";
-      flake = false;
-    };
-
     plugins-nvim-lsp-endhints = {
       url = "github:catitw/nvim-lsp-endhints";
       flake = false;
@@ -220,10 +215,6 @@
               {
                 plugin = vim-suda;
                 name = "suda.vim";
-              }
-              {
-                plugin = pkgs.neovimPlugins.wildfire;
-                name = "wildfire.nvim";
               }
 
               {
