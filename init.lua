@@ -44,6 +44,8 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
   -- rust
   { import = 'lazyvim.plugins.extras.lang.rust',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },
   { import = 'lazyvim.plugins.extras.lang.toml',      enabled = require('nixCatsUtils').enableForNixCategory('rust') },
+  -- cpp
+  { import = 'lazyvim.plugins.extras.lang.clangd',    enabled = require('nixCatsUtils').enableForNixCategory('cpp') },
   -- nix
   { import = 'lazyvim.plugins.extras.lang.nix',       enabled = require('nixCatsUtils').enableForNixCategory('nix') },
   -- pyton
