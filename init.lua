@@ -1,3 +1,18 @@
+if vim.g.neovide then
+  -- configure scaling
+  vim.g.neovide_scale_factor = 1.0
+  -- configure padding
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
+
+  vim.g.neovide_refresh_rate = 240
+  vim.g.neovide_cursor_antialiasing = true
+  vim.g.neovide_cursor_vfx_mode = 'railgun'
+  vim.g.neovide_opacity = 0.95
+end
+
 -- NOTE: this just gives nixCats global command a default value
 -- so that it doesnt throw an error if you didnt install via nix.
 -- usage of both this setup and the nixCats command is optional,
@@ -17,23 +32,6 @@ end
 local lazyOptions = {
   lockfile = getlockfilepath(),
 }
-
-if vim.g.neovide then
-  vim.g = {
-    -- configure scaling
-    neovide_scale_factor = 1.0,
-    -- configure padding
-    neovide_padding_top = 0,
-    neovide_padding_bottom = 0,
-    neovide_padding_right = 0,
-    neovide_padding_left = 0,
-
-    neovide_refresh_rate = 240,
-    neovide_cursor_antialiasing = true,
-    neovide_cursor_vfx_mode = 'railgun',
-    neovide_transparency = 0.95,
-  }
-end
 
 -- NOTE: this the lazy wrapper. Use it like require('lazy').setup() but with an extra
 -- argument, the path to lazy.nvim as downloaded by nix, or nil, before the normal arguments.
