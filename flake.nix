@@ -144,6 +144,7 @@
             nix = [
               nixd # instead of lazyvim default `nil`
               nixfmt-rfc-style
+              statix
             ];
             go = [
               go
