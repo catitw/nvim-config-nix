@@ -1,5 +1,3 @@
-# Copyright (c) 2023 BirdeeHub
-# Licensed under the MIT license
 {
   description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
 
@@ -132,7 +130,7 @@
               taplo # for toml
             ];
             rust = [
-              (fenix.packages.${pkgs.system}.complete.withComponents [
+              (fenix.packages.${pkgs.stdenv.hostPlatform.system}.complete.withComponents [
                 "cargo"
                 "clippy"
                 "rust-src"
