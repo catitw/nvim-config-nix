@@ -63,8 +63,10 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
   { import = 'lazyvim.plugins.extras.lang.clangd',    enabled = require('nixCatsUtils').enableForNixCategory('cpp') },
   -- nix
   { import = 'lazyvim.plugins.extras.lang.nix',       enabled = require('nixCatsUtils').enableForNixCategory('nix') },
-  -- pyton
+  -- python
   { import = 'lazyvim.plugins.extras.lang.python',    enabled = require('nixCatsUtils').enableForNixCategory('python') },
+  -- zig
+  { import = 'lazyvim.plugins.extras.lang.zig',    enabled = require('nixCatsUtils').enableForNixCategory('zig') },
 
   -- stylua: ignore end
   {

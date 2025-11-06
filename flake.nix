@@ -163,6 +163,9 @@
               pyright
               ruff
             ];
+            zig = [
+              # we dont provide `zls``, and `zig` in this neovim config, these should be provided by project itself.
+            ];
           };
 
           # NOTE: lazy doesnt care if these are in startupPlugins or optionalPlugins
@@ -255,6 +258,7 @@
               clangd_extensions-nvim
               nvim-cmp
             ];
+            zig = [ ];
           };
 
           # not loaded automatically at startup.
@@ -345,6 +349,7 @@
               go = true;
               cpp = true;
               python = true;
+              zig = true;
               test = false;
             };
             extra = {
